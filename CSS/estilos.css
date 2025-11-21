@@ -1,0 +1,466 @@
+/* ==============================
+   GALERÍA ORÁCULO — estilos.css
+   Tema: oscuro (negro · blanco · dorado)
+   Tipografías: Cinzel (títulos) + Lato (texto)
+   ============================== */
+
+/* ---------- Fuentes ---------- */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Lato:wght@300;400;700&display=swap');
+
+/* ---------- Variables de color y configuración global ---------- */
+:root{
+  --bg: #0d0d0d;            /* fondo general */
+  --card: #141414;          /* tarjetas / paneles */
+  --muted: #bfbfbf;         /* texto secundario */
+  --text: #f5f5f5;          /* texto principal */
+  --accent: #d4af37;        /* dorado principal */
+  --accent-2: #b78f2a;      /* dorado oscuro */
+  --border: rgba(245,245,245,0.06);
+  --glass: rgba(255,255,255,0.03);
+  --radius: 12px;
+  --max-width: 1100px;
+  --site-padding: 20px;
+}
+
+/* Tema claro alternativo (activo si body.light-theme) */
+body.light-theme {
+  --bg: #ffffff;
+  --card: #f8f8f8;
+  --muted: #555555;
+  --text: #111111;
+  --accent: #d4af37;
+  --border: rgba(0,0,0,0.06);
+  --glass: rgba(0,0,0,0.03);
+}
+
+/* ---------- Reset y base ---------- */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: 'Lato', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: radial-gradient(1200px 800px at 10% 10%, rgba(212,175,55,0.02), transparent 6%),
+              linear-gradient(180deg, var(--bg), #080808 120%);
+  color: var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  text-rendering: optimizeLegibility;
+  line-height: 1.6;
+  padding: 0 var(--site-padding);
+}
+
+/* Contenedor central */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* ---------- Header / Hero ---------- */
+header.site-header {
+  padding: 28px 0 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* Logo */
+.header-logo {
+  width: 160px;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.6), 0 1px 0 rgba(255,255,255,0.02) inset;
+  object-fit: contain;
+}
+
+/* Título */
+.site-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.6rem;
+  letter-spacing: 3px;
+  color: var(--text);
+  margin: 0;
+}
+
+/* Subtexto peque — opcional */
+.site-sub {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+/* ---------- Navegación ---------- */
+nav.site-nav {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.site-nav a {
+  color: var(--text);
+  text-decoration: none;
+  font-family: 'Cinzel', serif;
+  letter-spacing: 1px;
+  font-weight: 600;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: all 220ms ease;
+  border: 1px solid transparent;
+}
+
+.site-nav a:hover,
+.site-nav a:focus {
+  color: var(--bg);
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(212,175,55,0.08);
+}
+
+/* ---------- Hero principal ---------- */
+.hero {
+  margin: 36px auto;
+  padding: 48px 28px;
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 30px;
+  align-items: center;
+}
+
+.hero .intro {
+  text-align: left;
+}
+
+.hero h1 {
+  margin: 0 0 12px;
+  font-family: 'Cinzel', serif;
+  font-size: 2.6rem;
+  letter-spacing: 3px;
+  color: var(--text);
+}
+
+.hero p.lead {
+  margin: 0 0 20px;
+  color: var(--muted);
+  font-size: 1.05rem;
+  max-width: 60ch;
+}
+
+/* Hero media (imagen destacada) */
+.hero .hero-media img {
+  width: 100%;
+  border-radius: 10px;
+  display: block;
+  object-fit: cover;
+  box-shadow: 0 14px 38px rgba(0,0,0,0.6);
+  border: 1px solid var(--border);
+}
+
+/* CTA */
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  text-decoration: none;
+  font-family: 'Cinzel', serif;
+  letter-spacing: 1px;
+  transition: all 220ms ease;
+  cursor: pointer;
+}
+
+.btn.primary {
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  color: var(--bg);
+  border-color: transparent;
+  box-shadow: 0 10px 30px rgba(212,175,55,0.08);
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.6);
+}
+
+/* ---------- Secciones generales ---------- */
+.seccion {
+  margin: 48px auto;
+  padding: 28px;
+  background: linear-gradient(180deg, transparent, rgba(255,255,255,0.01));
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+
+.seccion h2 {
+  font-family: 'Cinzel', serif;
+  color: var(--accent);
+  margin: 0 0 12px;
+  letter-spacing: 1px;
+  font-size: 1.6rem;
+}
+
+.seccion p {
+  color: var(--muted);
+  margin: 0 0 16px;
+  font-size: 1rem;
+}
+
+/* ---------- Galería y tarjetas de obra ---------- */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  align-items: start;
+}
+
+@media (max-width: 980px) {
+  .hero { grid-template-columns: 1fr; }
+  .gallery { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .gallery { grid-template-columns: 1fr; }
+}
+
+/* Tarjeta de obra */
+.obra {
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
+  border-radius: 10px;
+  padding: 14px;
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+  transition: transform 260ms ease, box-shadow 260ms ease;
+  text-align: left;
+}
+
+.obra img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.03);
+  display: block;
+}
+
+.obra h3 {
+  margin: 12px 0 6px;
+  font-family: 'Cinzel', serif;
+  font-size: 1rem;
+  color: var(--text);
+}
+
+.obra p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+/* Hover elevación */
+.obra:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 48px rgba(0,0,0,0.7);
+}
+
+/* ---------- Listas ---------- */
+.list-inline {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 12px 0;
+  list-style: none;
+}
+
+.list-inline li {
+  background: var(--glass);
+  padding: 8px 12px;
+  border-radius: 8px;
+  color: var(--muted);
+  font-size: 0.95rem;
+  border: 1px solid var(--border);
+}
+
+/* ---------- Tablas ---------- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: transparent;
+  margin: 18px 0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+table th, table td {
+  padding: 12px 14px;
+  text-align: left;
+  border-bottom: 1px dashed var(--border);
+  color: var(--muted);
+}
+
+table th {
+  font-family: 'Cinzel', serif;
+  color: var(--text);
+  background: rgba(255,255,255,0.02);
+}
+
+/* ---------- Formulario ---------- */
+form.contact {
+  max-width: 520px;
+  margin: 18px auto;
+  padding: 18px;
+  background: var(--card);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+}
+
+form.contact label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+form.contact input[type="text"],
+form.contact input[type="email"],
+form.contact textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.04);
+  background: rgba(255,255,255,0.02);
+  color: var(--text);
+  margin-bottom: 12px;
+  outline: none;
+  transition: box-shadow 180ms ease;
+}
+
+form.contact input:focus,
+form.contact textarea:focus {
+  box-shadow: 0 8px 20px rgba(212,175,55,0.08);
+  border-color: var(--accent);
+}
+
+form.contact input[type="submit"] {
+  display: inline-block;
+  padding: 10px 18px;
+  border-radius: 8px;
+  border: 1px solid var(--accent);
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  color: var(--bg);
+  font-family: 'Cinzel', serif;
+  cursor: pointer;
+  transition: transform 180ms ease;
+}
+
+form.contact input[type="submit"]:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 36px rgba(212,175,55,0.08);
+}
+
+/* ---------- Detalles (details/summary) ---------- */
+details {
+  background: var(--card);
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  max-width: 800px;
+  margin: 10px auto;
+}
+
+details summary {
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--accent);
+  font-family: 'Cinzel', serif;
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  margin-top: 48px;
+  padding: 26px 0;
+  text-align: center;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+  font-size: 0.95rem;
+}
+
+/* Enlaces del footer */
+.site-footer a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  color: var(--accent);
+}
+
+/* ---------- Utilidades ---------- */
+.text-center { text-align: center; }
+.kicker { font-size: 0.85rem; color: var(--muted); }
+.small { font-size: 0.9rem; color: var(--muted); }
+
+/* Spacing helpers (útiles al maquetar en HTML) */
+.mt-8 { margin-top: 8px; }
+.mt-16 { margin-top: 16px; }
+.mt-32 { margin-top: 32px; }
+.mb-8 { margin-bottom: 8px; }
+
+/* ---------- Accesibilidad y foco ---------- */
+a:focus, button:focus, input:focus {
+  outline: 3px solid rgba(212,175,55,0.12);
+  outline-offset: 2px;
+}
+
+/* ---------- Animaciones sutiles ---------- */
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+}
+
+/* ---------- Responsive general ---------- */
+@media (max-width: 980px) {
+  .hero { padding: 30px; grid-template-columns: 1fr; }
+  .header-logo { width: 140px; }
+  .site-title { font-size: 1.3rem; }
+  .gallery { gap: 16px; }
+}
+
+@media (max-width: 600px) {
+  nav.site-nav { gap: 8px; }
+  .site-nav a { padding: 6px 8px; font-size: 0.95rem; }
+  .hero h1 { font-size: 1.8rem; }
+  .obra img { height: 180px; }
+}
+
+/* ---------- Nota: clases sugeridas para HTML ----------
+
+Usa estas clases en tu HTML (si quieres, yo las aplico por ti):
+- <header class="site-header"> ... <img class="header-logo"> <div class="header-left"><h1 class="site-title">...</h1><span class="site-sub">...</span></div> <nav class="site-nav">...</nav>
+- <section class="hero"> <div class="intro"> <h1>...</h1><p class="lead">...</p><a class="btn primary">Ver expos.</a></div> <div class="hero-media"><img src="..."></div> </section>
+- <section class="seccion container"> <h2>...</h2> <p>...</p> </section>
+- <div class="gallery"> <article class="obra"> <img src=""><h3>...</h3><p>...</p></article> ... </div>
+- <form class="contact"> ... </form>
+- <footer class="site-footer"> ... </footer>
+
+Esto facilita la consistencia entre todas las páginas.
+*/
+
+/* Fin de estilos.css */
